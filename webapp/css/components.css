@@ -2643,3 +2643,37 @@ html .pf-app .pf-topbar .sapMBtn:focus-visible > .sapMBtnInner::before {
         font-size: 2.25rem;
     }
 }
+
+/* --------------------------------------------------------------------------
+ * Toggle de tema — estado selecionado forte e identico em Claro/Escuro.
+ *
+ * No tema claro o item "Claro" selecionado acabava branco sobre o proprio
+ * controle e parecia desabilitado. O estado ativo agora usa sempre a cor
+ * primaria e texto de alto contraste, independentemente do tema atual.
+ * -------------------------------------------------------------------------- */
+.sapUiBody .pf-footer__toggle .sapMSegBBtnInnerWrapper,
+.sapUiBody .pf-footer__toggle .sapMSegBBtnInner {
+    background: var(--pf-surface-sunken) !important;
+    color: var(--pf-text-muted) !important;
+    border-color: transparent !important;
+}
+
+.sapUiBody .pf-footer__toggle li.sapMSegBBtnSel > .sapMSegBBtnInnerWrapper,
+.sapUiBody .pf-footer__toggle li.sapMSegBBtnSel .sapMSegBBtnInner {
+    background: var(--pf-primary) !important;
+    border-color: var(--pf-primary) !important;
+}
+
+.sapUiBody .pf-footer__toggle li.sapMSegBBtnSel .sapMSegBBtnInner,
+.sapUiBody .pf-footer__toggle li.sapMSegBBtnSel .sapMSegBBtnInner bdi,
+.sapUiBody .pf-footer__toggle li.sapMSegBBtnSel .sapMSegBBtnInner span {
+    color: var(--pf-on-primary) !important;
+    font-weight: 700;
+}
+
+/* SVG do WhatsApp dentro de sap.m.Button: dimensao alinhada aos SAP-icons. */
+.sapUiBody .sapMBtn img[src$="whatsapp.svg"] {
+    width: 1rem;
+    height: 1rem;
+    object-fit: contain;
+}

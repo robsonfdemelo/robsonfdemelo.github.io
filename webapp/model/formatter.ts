@@ -132,9 +132,16 @@ const formatter = {
 
     // ------------------------------------------------------------ recursos
 
-    /** Nome do catalogo SAP-icons -> URI; "action-settings" quando vazio. */
+    /**
+     * Nome do catalogo SAP-icons -> URI. Caminhos/URLs de imagem (por exemplo
+     * um SVG de marca em `images/`) passam direto para o controle.
+     */
     icon(name: string | undefined): string {
-        return `sap-icon://${name || "action-settings"}`;
+        const value = name || "action-settings";
+        if (/^(?:https?:|data:|\/|\.\/|\.\.\/)/.test(value) || value.includes("/") || /\.(?:svg|png|jpe?g|webp)$/i.test(value)) {
+            return value;
+        }
+        return `sap-icon://${value}`;
     },
 
     /** Imagem da credencial, com placeholder quando ela nao tem imagem. */

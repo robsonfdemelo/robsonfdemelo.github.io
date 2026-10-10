@@ -112,6 +112,11 @@ export default abstract class BaseController extends Controller {
         this.openLink(`mailto:${this.content().profile.email}`);
     }
 
+    /** Conversa direta no WhatsApp, quando o link estiver cadastrado no perfil. */
+    public onWhatsAppPress(): void {
+        this.openLink(this.content().profile.links?.find((link) => link.id === "whatsapp")?.url);
+    }
+
     /** Pagina do curriculo. */
     public onCvPress(): void {
         this.navigate(Route.CV);

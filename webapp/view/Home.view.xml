@@ -44,6 +44,12 @@
                                 icon="sap-icon://email"
                                 text="{i18n>action.contact}"
                                 press="onEmailPress"/>
+                            <Button
+                                type="Ghost"
+                                icon="images/whatsapp.svg"
+                                text="{i18n>action.whatsapp}"
+                                tooltip="{i18n>action.whatsapp}"
+                                press="onWhatsAppPress"/>
                         </HBox>
 
                         <HBox class="pf-hero__meta">
@@ -183,6 +189,12 @@
                             icon="sap-icon://email"
                             text="{i18n>action.contact}"
                             press="onEmailPress"/>
+                        <Button
+                            type="Ghost"
+                            icon="images/whatsapp.svg"
+                            text="{i18n>action.whatsapp}"
+                            tooltip="{i18n>action.whatsapp}"
+                            press="onWhatsAppPress"/>
                         <Button
                             type="Ghost"
                             icon="sap-icon://pdf-attachment"
