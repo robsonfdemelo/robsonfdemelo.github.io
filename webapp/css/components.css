@@ -2185,7 +2185,23 @@ html .pf-app .pf-topbar .sapMBtn:focus-visible > .sapMBtnInner::before {
 }
 
 .pf-footer__toggle {
+    flex: 0 0 auto;
+    min-width: 10rem;
     border-radius: var(--pf-radius-pill);
+}
+
+/*
+ * O SegmentedButton distribui a largura entre Claro/Escuro. Sem uma largura
+ * minima o flex do rodape pode comprimir o controle e o UI5 troca o texto por
+ * reticencias ("Esc..."). Mantemos os dois labels sempre legiveis.
+ */
+.pf-footer__toggle .sapMSegBBtn,
+.pf-footer__toggle .sapMSegBBtnInner {
+    min-width: 0;
+}
+
+.pf-footer__toggle .sapMSegBBtnInner {
+    white-space: nowrap;
 }
 
 /*
