@@ -1,0 +1,60 @@
+[
+  {
+    "id": "java-proaway",
+    "name": {
+      "pt": "Formação Java - 400 horas",
+      "en": "Java Training - 400 hours"
+    },
+    "issuer": "ProaWay Treinamentos"
+  },
+  {
+    "id": "sap-abap-smart-training",
+    "name": {
+      "pt": "Academia interna SAP ABAP",
+      "en": "Internal SAP ABAP Academy"
+    },
+    "issuer": "Smart Training"
+  },
+  {
+    "id": "ibat-english",
+    "name": {
+      "pt": "English Language School",
+      "en": "English Language School"
+    },
+    "issuer": "IBAT College Dublin - Ireland"
+  },
+  {
+    "id": "java-jsf-aws",
+    "name": {
+      "pt": "Java, JSF e AWS - 120 horas",
+      "en": "Java, JSF and AWS - 120 hours"
+    },
+    "issuer": "TranspoBrasil"
+  },
+  {
+    "id": "sap-fiori-ui5-gateway",
+    "name": {
+      "pt": "SAP Fiori / UI5 / Gateway - 30 horas",
+      "en": "SAP Fiori / UI5 / Gateway - 30 hours"
+    },
+    "issuer": "Exed Academy"
+  },
+  {
+    "id": "java-spring-alura",
+    "name": {
+      "pt": "Java Spring Boot / Security e API REST",
+      "en": "Java Spring Boot / Security and REST API"
+    },
+    "issuer": "Alura"
+  },
+  {
+    "id": "react-native-devsamurai",
+    "name": "React Native",
+    "issuer": "DevSamurai"
+  },
+  {
+    "id": "sap-btp-cap-infinity",
+    "name": "SAP BTP e SAP CAP",
+    "issuer": "Infinity Academy"
+  }
+]

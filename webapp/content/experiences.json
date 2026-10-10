@@ -1,0 +1,170 @@
+[
+  {
+    "id": "accenture-btp-fiori",
+    "company": "Accenture Brasil",
+    "role": {
+      "pt": "Consultor BTP Fiori",
+      "en": "BTP Fiori Consultant"
+    },
+    "period": {
+      "from": "2026-02",
+      "to": null
+    },
+    "summary": {
+      "pt": "Atuação em solução de controle de estoque transitório para operações de manutenção, integrada ao SAP BTP e SAP ECC.",
+      "en": "Working on a transitory stock control solution for maintenance operations, integrated with SAP BTP and SAP ECC."
+    },
+    "highlights": [
+      {
+        "pt": "Desenvolvimento de aplicação utilizada em coletores de armazém com SAP MDK.",
+        "en": "Development of a warehouse handheld application with SAP MDK."
+      },
+      {
+        "pt": "Integração com SAP ECC nos módulos MM, WM e PM para rastreamento e movimentação de materiais.",
+        "en": "Integration with SAP ECC across MM, WM and PM for material tracking and movement."
+      },
+      {
+        "pt": "Uso de SAP BTP e SAP CAP como parte da solução e da camada de integração.",
+        "en": "Use of SAP BTP and SAP CAP as part of the solution and integration layer."
+      }
+    ],
+    "stack": [
+      "SAP BTP",
+      "SAP Fiori/UI5",
+      "SAP CAP",
+      "SAP MDK",
+      "SAP ECC",
+      "OData"
+    ],
+    "modules": [
+      "MM",
+      "WM",
+      "PM"
+    ],
+    "kind": "job",
+    "featured": true
+  },
+  {
+    "id": "ecs-sap-abap-fiori-btp",
+    "company": "ECS Consulting",
+    "role": {
+      "pt": "Programador SAP ABAP Fiori / BTP",
+      "en": "SAP ABAP Fiori / BTP Developer"
+    },
+    "period": {
+      "from": "2023-01",
+      "to": null
+    },
+    "summary": {
+      "pt": "Desenvolvimento e melhorias em soluções SAP, atuando no front-end com BTP/Fiori e no backend com SAP CAP e ABAP.",
+      "en": "Development and enhancement of SAP solutions, working on BTP/Fiori front ends and SAP CAP/ABAP back ends."
+    },
+    "highlights": [
+      {
+        "pt": "Melhorias em portais com SAP BTP e Fiori, com backend em SAP CAP.",
+        "en": "Enhancements to portals with SAP BTP and Fiori, backed by SAP CAP."
+      },
+      {
+        "pt": "Melhorias em Module Pool para processo de separação de volumes no WM.",
+        "en": "Module Pool enhancements for volume separation processes in WM."
+      },
+      {
+        "pt": "Criação e alteração de objetos ABAP: tabelas Z, Search Help, elementos de dados, tipos tabela, domínios, ALV e RFC.",
+        "en": "Creation and enhancement of ABAP objects: Z tables, Search Helps, data elements, table types, domains, ALV and RFC."
+      },
+      {
+        "pt": "Programas de carga e atualizações de dados com uso de BAPI.",
+        "en": "Data load and update programs using BAPIs."
+      }
+    ],
+    "stack": [
+      "SAP ABAP",
+      "SAP Fiori/UI5",
+      "SAP BTP",
+      "SAP CAP",
+      "Module Pool",
+      "BAPI",
+      "RFC",
+      "ALV"
+    ],
+    "modules": [
+      "WM",
+      "MM"
+    ],
+    "kind": "job",
+    "featured": true
+  },
+  {
+    "id": "philips-tasy",
+    "company": "Philips Health Systems North America",
+    "role": {
+      "pt": "Programador Sênior",
+      "en": "Senior Developer"
+    },
+    "period": {
+      "from": "2016-03",
+      "to": "2022-12"
+    },
+    "summary": {
+      "pt": "Desenvolvimento do Tasy HTML5, sistema de gestão hospitalar, com criação de funcionalidades, APIs REST e integrações corporativas.",
+      "en": "Development of Tasy HTML5, a hospital management system, building features, REST APIs and enterprise integrations."
+    },
+    "highlights": [
+      {
+        "pt": "Desenvolvimento com AngularJS, JavaScript, Java, Spring Boot e PL/SQL.",
+        "en": "Development with AngularJS, JavaScript, Java, Spring Boot and PL/SQL."
+      },
+      {
+        "pt": "Construção de APIs REST e integrações com bancos, instituições financeiras e sistemas externos de saúde.",
+        "en": "Building REST APIs and integrations with banks, financial institutions and external healthcare systems."
+      },
+      {
+        "pt": "Uso de Git para versionamento e trabalho em fábrica de software de gestão hospitalar.",
+        "en": "Use of Git for version control in a healthcare software factory environment."
+      }
+    ],
+    "stack": [
+      "Java",
+      "Spring Boot",
+      "REST API",
+      "JavaScript",
+      "AngularJS",
+      "PL/SQL",
+      "Git"
+    ],
+    "kind": "job"
+  },
+  {
+    "id": "bluware-suporte",
+    "company": "BLUWARE - Software para Clubes e Controle de Acesso",
+    "role": {
+      "pt": "Analista de Suporte Júnior",
+      "en": "Junior Support Analyst"
+    },
+    "period": {
+      "from": "2013-12",
+      "to": "2014-03"
+    },
+    "summary": {
+      "pt": "Suporte a sistema de controle de acesso desenvolvido em Delphi, com atendimento, documentação, scripts e administração de banco Firebird.",
+      "en": "Support for an access-control system built in Delphi, including customer support, documentation, scripts and Firebird database administration."
+    },
+    "highlights": [
+      {
+        "pt": "Documentação de rotinas e criação de manuais para clientes.",
+        "en": "Routine documentation and customer manual creation."
+      },
+      {
+        "pt": "Apoio à implantação de práticas ITIL no atendimento e suporte.",
+        "en": "Support for adopting ITIL practices in customer service and support."
+      }
+    ],
+    "stack": [
+      "Delphi",
+      "Firebird",
+      "SQL",
+      "ITIL"
+    ],
+    "kind": "job"
+  }
+]

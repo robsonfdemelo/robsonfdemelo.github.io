@@ -1,0 +1,22 @@
+# dependencias
+node_modules/
+
+# build ui5
+dist/
+*.log
+npm-debug.log*
+
+# gerados localmente
+webapp/cv/*.pdf
+!webapp/cv/.gitkeep
+.env
+.env.local
+
+# tooling
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.DS_Store
+Thumbs.db
+# Cache do ui5-tooling-modules (bundle do jspdf)
+.ui5-tooling-modules/

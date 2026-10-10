@@ -1,0 +1,104 @@
+import { describe, expect, it } from "vitest";
+import {
+    countCertificateYears,
+    countTags,
+    groupSkillsByCategory,
+    isSoftSkill,
+    mostRecentRepos
+} from "../webapp/model/content/viewData";
+import type { Certificate, Skill } from "../webapp/model/types";
+
+function skill(id: string, category: string): Skill {
+    return { id, name: id, category, level: 3 };
+}
+
+describe("isSoftSkill", () => {
+    it("reconhece a categoria Soft Skills", () => {
+        expect(isSoftSkill(skill("a", "Soft Skills"))).toBe(true);
+    });
+
+    it("ignora maiusculas, minusculas e acentos", () => {
+        expect(isSoftSkill(skill("a", "soft skills"))).toBe(true);
+        expect(isSoftSkill(skill("b", "SOFT SKILLS"))).toBe(true);
+        expect(isSoftSkill(skill("c", "Söft Skills"))).toBe(true);
+    });
+
+    it("aceita categoria que comeca com o nome do grupo", () => {
+        expect(isSoftSkill(skill("a", "Soft skills & comunicacao"))).toBe(true);
+    });
+
+    it("nao confunde com outras categorias", () => {
+        expect(isSoftSkill(skill("a", "Front-end"))).toBe(false);
+        expect(isSoftSkill(skill("b", "Hard Skills"))).toBe(false);
+        expect(isSoftSkill(skill("c", "Backend"))).toBe(false);
+    });
+});
+
+describe("groupSkillsByCategory", () => {
+    it("agrupa e conta as skills de cada categoria", () => {
+        const groups = groupSkillsByCategory([
+            skill("a", "Front-end"),
+            skill("b", "SAP"),
+            skill("c", "Front-end")
+        ]);
+
+        expect(groups.map((group) => group.category)).toEqual(["Front-end", "SAP"]);
+        expect(groups[0].count).toBe(2);
+        expect(groups[0].items.map((item) => item.id)).toEqual(["a", "c"]);
+        expect(groups[1].count).toBe(1);
+    });
+
+    it("mantem a ordem em que a categoria aparece no JSON", () => {
+        const groups = groupSkillsByCategory([skill("a", "Zzz"), skill("b", "Aaa")]);
+        expect(groups.map((group) => group.category)).toEqual(["Zzz", "Aaa"]);
+    });
+});
+
+describe("countTags", () => {
+    it("ordena por quantidade e depois alfabeticamente", () => {
+        const groups = countTags([{ tags: ["ui5", "abap"] }, { tags: ["ui5"] }, { tags: ["abap", "cloud"] }]);
+
+        expect(groups[0]).toEqual({ tag: "abap", count: 2 });
+        expect(groups[1]).toEqual({ tag: "ui5", count: 2 });
+        expect(groups[2]).toEqual({ tag: "cloud", count: 1 });
+    });
+
+    it("aceita itens sem tags", () => {
+        expect(countTags([{}, { tags: [] }])).toEqual([]);
+    });
+});
+
+describe("countCertificateYears", () => {
+    function certificate(id: string, issuedAt: string): Certificate {
+        return { id, title: id, issuer: "SAP", issuedAt, expiresAt: null };
+    }
+
+    it("agrupa por ano e ordena do mais novo para o mais antigo", () => {
+        const groups = countCertificateYears([
+            certificate("a", "2022-05-01"),
+            certificate("b", "2024-01-01"),
+            certificate("c", "2024-08-01")
+        ]);
+
+        expect(groups).toEqual([
+            { year: "2024", count: 2 },
+            { year: "2022", count: 1 }
+        ]);
+    });
+
+    it("ignora registros sem data de emissao utilizavel", () => {
+        expect(countCertificateYears([certificate("a", "")])).toEqual([]);
+    });
+});
+
+describe("mostRecentRepos", () => {
+    it("ordena pelo push real, nao pelo nome, dentro do mesmo mes", () => {
+        const repos = [
+            { name: "A-antigo", url: "https://github.com/x/a", pushedAt: "2026-10-01T08:00:00Z" },
+            { name: "Z-novo", url: "https://github.com/x/z", pushedAt: "2026-10-05T18:00:00Z" },
+            { name: "M-setembro", url: "https://github.com/x/m", pushedAt: "2026-09-30T23:00:00Z" }
+        ];
+
+        expect(mostRecentRepos(repos, 2).map((repo) => repo.name)).toEqual(["Z-novo", "A-antigo"]);
+    });
+});

@@ -1,0 +1,70 @@
+specVersion: "3.0"
+metadata:
+    name: robson.portfolio
+type: application
+framework:
+    name: OpenUI5
+    version: "1.153.0"
+    libraries:
+        - name: sap.m
+        - name: sap.f
+        - name: sap.ui.core
+        - name: sap.ui.layout
+        - name: sap.ui.unified
+
+# Configuracao compartilhada entre a task (build) e o middleware (serve).
+customConfiguration:
+    ui5-tooling-transpile: &cfgTranspile
+        debug: true
+        # OBRIGATORIO: converter classes ES para o padrao UI5 ".extend()".
+        # O UI5 cria componente/controller a partir dessa fabrica (chamada com
+        # "new" sobre uma funcao), e nao a partir de uma classe ES2015 nativa.
+        # Sem esta conversao o app morre com:
+        #   "Class constructor Component cannot be invoked without 'new'"
+        # e a tela fica presa no preloader.
+        # Por padrao o babel-plugin-transform-modules-ui5 so converte classes cujo
+        # nome contem "Controller" ou o arquivo termina em ".controller.ts", o que
+        # deixaria webapp/Component.ts (classe "Component") como classe nativa.
+        transformModulesToUI5:
+            autoConvertAllExtendClasses: true
+    ui5-tooling-modules: &cfgModules
+        debug: true
+        # Pacotes npm (ex.: jspdf, usado pelo PDF do curriculo) ficam em
+        # robson/portfolio/thirdparty/. Precisa valer no serve tambem: sem isso o
+        # import "jspdf" vira um modulo de topo e o loader o procura no CDN do
+        # UI5 (ui5.sap.com/resources/jspdf.js), onde nao existe.
+        addToNamespace: true
+
+builder:
+    # Bibliotecas npm (jspdf e os chunks opcionais dele: html2canvas, canvg,
+    # dompurify) ficam FORA do Component-preload: sao ~700 KB que so o botao
+    # "Baixar PDF" usa, e o loader os busca sob demanda no clique. Dentro do
+    # preload, todo visitante baixaria isso ao abrir o site - e o analisador do
+    # UI5 ainda falhava no chunk do canvg (sintaxe `new.target`).
+    componentPreload:
+        excludes:
+            - "robson/portfolio/thirdparty/"
+    customTasks:
+        # Transpila TypeScript -> JavaScript (ES5) durante o build.
+        - name: ui5-tooling-transpile-task
+          afterTask: replaceVersion
+          configuration:
+              <<: *cfgTranspile
+        # Resolve imports de pacotes npm (sap/*) e os registra como namespaces.
+        # Depois da transpilacao: so assim os imports npm dos .ts ja convertidos
+        # (ex.: "jspdf" em pdf/cvPdf) sao reescritos para o namespace.
+        - name: ui5-tooling-modules-task
+          afterTask: ui5-tooling-transpile-task
+          configuration:
+              <<: *cfgModules
+
+server:
+    customMiddleware:
+        - name: ui5-tooling-transpile-middleware
+          afterMiddleware: compression
+          configuration:
+              <<: *cfgTranspile
+        - name: ui5-tooling-modules-middleware
+          afterMiddleware: compression
+          configuration:
+              <<: *cfgModules

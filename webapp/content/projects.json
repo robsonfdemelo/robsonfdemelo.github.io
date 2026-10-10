@@ -1,0 +1,163 @@
+[
+  {
+    "id": "vale-pet",
+    "name": {
+      "pt": "Controle de Estoque Transitório (Depósito PET)",
+      "en": "Transitory Stock Control (PET Warehouse)"
+    },
+    "role": {
+      "pt": "Consultor BTP Fiori / Desenvolvedor SAP",
+      "en": "BTP Fiori Consultant / SAP Developer"
+    },
+    "company": "Accenture Brasil",
+    "period": {
+      "from": "2026-02",
+      "to": null
+    },
+    "description": {
+      "pt": "Solução para digitalizar o processo logístico de pontos de estoque transitório em áreas de manutenção, integrando coletores de armazém ao SAP ECC e garantindo rastreabilidade física e sistêmica.",
+      "en": "Solution to digitalize logistics for transitory stock points in maintenance areas, integrating warehouse handhelds with SAP ECC and providing physical and system traceability."
+    },
+    "highlights": [
+      {
+        "pt": "Aplicação móvel com SAP MDK para recebimento, estocagem, separação e movimentação de materiais.",
+        "en": "SAP MDK mobile application for receiving, putaway, picking and material movement."
+      },
+      {
+        "pt": "Integração com SAP ECC nos módulos MM, WM e PM.",
+        "en": "Integration with SAP ECC across MM, WM and PM."
+      },
+      {
+        "pt": "SAP BTP e CAP compondo a solução de integração e aplicações web.",
+        "en": "SAP BTP and CAP as part of the integration and web application solution."
+      }
+    ],
+    "stack": [
+      "SAP BTP",
+      "SAP MDK",
+      "SAP CAP",
+      "SAP Fiori/UI5",
+      "SAP ECC",
+      "OData"
+    ],
+    "tags": [
+      "SAP",
+      "BTP",
+      "MDK",
+      "CAP",
+      "ECC",
+      "Logística"
+    ],
+    "featured": true,
+    "current": true,
+    "icon": "shipping-status"
+  },
+  {
+    "id": "ecs-portais-btp",
+    "name": {
+      "pt": "Evolução de portais SAP BTP e Fiori",
+      "en": "SAP BTP and Fiori portal enhancements"
+    },
+    "role": {
+      "pt": "Programador SAP ABAP Fiori / BTP",
+      "en": "SAP ABAP Fiori / BTP Developer"
+    },
+    "company": "ECS Consulting",
+    "period": {
+      "from": "2023-01",
+      "to": null
+    },
+    "description": {
+      "pt": "Melhorias em portais corporativos com SAP BTP e Fiori no front-end e SAP CAP no backend, incluindo manutenção e evolução de funcionalidades.",
+      "en": "Enhancements to enterprise portals using SAP BTP and Fiori on the front end and SAP CAP on the back end, including feature maintenance and evolution."
+    },
+    "stack": [
+      "SAP BTP",
+      "SAP Fiori/UI5",
+      "SAP CAP",
+      "JavaScript"
+    ],
+    "tags": [
+      "SAP",
+      "BTP",
+      "Fiori",
+      "CAP"
+    ],
+    "featured": true,
+    "current": true,
+    "icon": "business-objects-experience"
+  },
+  {
+    "id": "ecs-wm-abap",
+    "name": {
+      "pt": "Melhorias SAP ABAP e processo WM",
+      "en": "SAP ABAP enhancements and WM process"
+    },
+    "role": {
+      "pt": "Programador SAP ABAP Fiori / BTP",
+      "en": "SAP ABAP Fiori / BTP Developer"
+    },
+    "company": "ECS Consulting",
+    "period": {
+      "from": "2023-01",
+      "to": null
+    },
+    "description": {
+      "pt": "Evoluções em processo de separação de volumes no WM e desenvolvimento ABAP, incluindo Module Pool, objetos de dicionário, ALV, RFC, programas de carga e BAPIs.",
+      "en": "Enhancements to a WM volume separation process and ABAP development including Module Pool, Dictionary objects, ALV, RFC, load programs and BAPIs."
+    },
+    "stack": [
+      "SAP ABAP",
+      "Module Pool",
+      "BAPI",
+      "RFC",
+      "ALV",
+      "SAP WM"
+    ],
+    "tags": [
+      "SAP",
+      "ABAP",
+      "WM",
+      "BAPI"
+    ],
+    "featured": true,
+    "current": true,
+    "icon": "inventory"
+  },
+  {
+    "id": "philips-tasy-html5",
+    "name": {
+      "pt": "Tasy HTML5 - Gestão Hospitalar",
+      "en": "Tasy HTML5 - Healthcare Management"
+    },
+    "role": {
+      "pt": "Programador Sênior",
+      "en": "Senior Developer"
+    },
+    "company": "Philips Health Systems North America",
+    "period": {
+      "from": "2016-03",
+      "to": "2022-12"
+    },
+    "description": {
+      "pt": "Desenvolvimento de funcionalidades, APIs REST e integrações do sistema Tasy HTML5 com bancos, instituições financeiras e outros sistemas externos de saúde.",
+      "en": "Development of features, REST APIs and integrations for Tasy HTML5 with banks, financial institutions and external healthcare systems."
+    },
+    "stack": [
+      "Java",
+      "Spring Boot",
+      "JavaScript",
+      "AngularJS",
+      "PL/SQL",
+      "REST API"
+    ],
+    "tags": [
+      "Java",
+      "Healthcare",
+      "REST",
+      "Integração"
+    ],
+    "featured": true,
+    "icon": "sys-monitor"
+  }
+]

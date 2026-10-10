@@ -1,0 +1,20 @@
+[
+  {
+    "id": "ads-unimonte",
+    "institution": "UNIMONTE",
+    "degree": {
+      "pt": "Tecnologia em Análise e Desenvolvimento de Sistemas",
+      "en": "Technology Degree in Systems Analysis and Development"
+    },
+    "description": {
+      "pt": "Ensino superior concluído em Análise e Desenvolvimento de Sistemas.",
+      "en": "Completed higher education degree in Systems Analysis and Development."
+    },
+    "kind": "education",
+    "tags": [
+      "Desenvolvimento de Software",
+      "Sistemas",
+      "Tecnologia"
+    ]
+  }
+]

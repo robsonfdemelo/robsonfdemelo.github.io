@@ -1,0 +1,96 @@
+{
+  "id": "robson-ferreira",
+  "name": "Robson Ferreira",
+  "role": {
+    "pt": "Consultor SAP BTP · Fiori · CAP · MDK",
+    "en": "SAP BTP · Fiori · CAP · MDK Consultant"
+  },
+  "headline": {
+    "pt": "Soluções SAP conectando BTP, Fiori, CAP, MDK e ECC",
+    "en": "SAP solutions connecting BTP, Fiori, CAP, MDK and ECC"
+  },
+  "summary": {
+    "pt": "Consultor e desenvolvedor de software com atuação em SAP BTP, SAP Fiori/UI5, CAP, MDK e ABAP. Experiência anterior em aplicações corporativas com Java, Spring Boot, JavaScript, AngularJS e PL/SQL, além de integrações com sistemas externos.",
+    "en": "Software developer and consultant working with SAP BTP, SAP Fiori/UI5, CAP, MDK and ABAP. Previous experience with enterprise applications using Java, Spring Boot, JavaScript, AngularJS and PL/SQL, including integrations with external systems."
+  },
+  "about": [
+    {
+      "pt": "Atuo com desenvolvimento de software desde 2013 e construí uma base sólida em aplicações corporativas antes de direcionar minha carreira para o ecossistema SAP. Na Philips Health Systems, trabalhei por vários anos no Tasy HTML5, desenvolvendo funcionalidades e integrações com Java, Spring Boot, JavaScript, AngularJS e PL/SQL.",
+      "en": "I have worked in software development since 2013, building a strong enterprise application background before focusing my career on the SAP ecosystem. At Philips Health Systems, I spent several years working on Tasy HTML5, developing features and integrations with Java, Spring Boot, JavaScript, AngularJS and PL/SQL."
+    },
+    {
+      "pt": "Hoje atuo em projetos SAP com foco em BTP, Fiori/UI5, CAP, MDK e ABAP. Entre os trabalhos recentes está uma solução de estoque transitório integrada ao SAP ECC para operação em coletores de armazém, com rastreabilidade logística ponta a ponta.",
+      "en": "Today I work on SAP projects focused on BTP, Fiori/UI5, CAP, MDK and ABAP. Recent work includes a transitory stock solution integrated with SAP ECC for warehouse handheld devices, providing end-to-end logistics traceability."
+    },
+    {
+      "pt": "Sou formado em Análise e Desenvolvimento de Sistemas e tive uma experiência internacional de oito meses na Irlanda, onde estudei inglês no IBAT College Dublin. Mantenho uma rotina contínua de estudos em SAP, Java e tecnologias de desenvolvimento moderno.",
+      "en": "I hold a degree in Systems Analysis and Development and spent eight months in Ireland, where I studied English at IBAT College Dublin. I keep a continuous learning routine across SAP, Java and modern development technologies."
+    }
+  ],
+  "avatar": "images/profile.jpg",
+  "availability": {
+    "pt": "Aberto a novos desafios e projetos SAP",
+    "en": "Open to new SAP challenges and projects"
+  },
+  "email": "robson.ferreiramelo@gmail.com",
+  "location": {
+    "pt": "Guarujá, SP",
+    "en": "Guarujá, Brazil"
+  },
+  "languages": [
+    {
+      "id": "pt",
+      "name": {
+        "pt": "Português",
+        "en": "Portuguese"
+      },
+      "level": {
+        "pt": "Nativo",
+        "en": "Native"
+      }
+    },
+    {
+      "id": "en",
+      "name": {
+        "pt": "Inglês",
+        "en": "English"
+      },
+      "level": {
+        "pt": "Intermediário · experiência de intercâmbio na Irlanda",
+        "en": "Intermediate · exchange experience in Ireland"
+      }
+    }
+  ],
+  "links": [
+    {
+      "id": "email",
+      "label": {
+        "pt": "E-mail",
+        "en": "Email"
+      },
+      "url": "mailto:robson.ferreiramelo@gmail.com",
+      "icon": "email",
+      "primary": false
+    }
+  ],
+  "focusSkills": [
+    "btp",
+    "ui5",
+    "cap",
+    "mdk",
+    "abap",
+    "odata"
+  ],
+  "stackHighlights": [
+    "SAP BTP",
+    "SAPUI5 / Fiori",
+    "SAP CAP",
+    "SAP MDK",
+    "SAP ABAP",
+    "SAP ECC",
+    "OData",
+    "Java",
+    "Spring Boot",
+    "PL/SQL"
+  ]
+}

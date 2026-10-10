@@ -1,0 +1,82 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+    <VBox class="pf-project">
+        <!-- Capa opcional (ex.: curso); sem `image` o card segue so com o icone. -->
+        <Image
+            class="pf-project__cover"
+            src="{image}"
+            densityAware="false"
+            alt="{name}"
+            visible="{= !!${image} }"/>
+
+        <HBox alignItems="Center" class="pf-project__head">
+            <HBox class="pf-project__icon" alignItems="Center">
+                <core:Icon src="{path: 'icon', formatter: '.formatter.icon'}" class="pf-text-lg"/>
+            </HBox>
+            <VBox class="pf-project__title">
+                <Text class="pf-project__name" text="{name}"/>
+                <!-- Papel e empresa ("Consultor SAP ABAP · Accenture Brasil"). -->
+                <Text
+                    class="pf-project__meta"
+                    text="{parts: ['role', 'company'], formatter: '.formatter.joinDot'}"
+                    visible="{= !!${role} || !!${company} }"/>
+            </VBox>
+        </HBox>
+
+        <!-- Em andamento (sem data) ou o periodo. -->
+        <HBox class="pf-gap-2">
+            <Text class="pf-project__badge pf-project__badge--live" text="{i18n>project.current}" visible="{= !!${current} }"/>
+            <Text
+                class="pf-project__badge"
+                text="{parts: ['period', 'i18n>period.current'], formatter: '.formatter.period'}"
+                visible="{= !${current} &amp;&amp; !!${period/from} }"/>
+        </HBox>
+
+        <Text class="pf-project__desc" text="{description}"/>
+
+        <HBox class="pf-chips" items="{path: 'stackItems', templateShareable: true}">
+            <core:Fragment fragmentName="robson.portfolio.fragment.Chip" type="XML"/>
+        </HBox>
+
+        <!-- VBox: um destaque por linha. -->
+        <VBox
+            class="pf-gap-1"
+            items="{path: 'highlightsItems', templateShareable: true}"
+            visible="{= !!${highlightsItems} &amp;&amp; ${highlightsItems}.length > 0}">
+            <Text class="pf-bullet pf-small pf-muted" text="{label}"/>
+        </VBox>
+
+        <HBox class="pf-project__foot">
+            <HBox alignItems="Center" class="pf-gap-1 pf-muted pf-small" visible="{= !!${language}}">
+                <core:Icon src="sap-icon://source-code" class="pf-text-xs"/>
+                <Text text="{language}"/>
+            </HBox>
+            <HBox alignItems="Center" class="pf-project__stat" visible="{= !!${stars}}">
+                <core:Icon src="sap-icon://favorite" class="pf-text-xs"/>
+                <Text text="{stars}"/>
+            </HBox>
+            <HBox alignItems="Center" class="pf-project__stat" visible="{= !!${forks}}">
+                <core:Icon src="sap-icon://share" class="pf-text-xs"/>
+                <Text text="{forks}"/>
+            </HBox>
+            <HBox alignItems="Center" class="pf-gap-1 pf-muted pf-small" visible="{= !!${updatedAt}}">
+                <core:Icon src="sap-icon://history" class="pf-text-xs"/>
+                <Text text="{updatedAt}"/>
+            </HBox>
+        </HBox>
+
+        <HBox class="pf-gap-2">
+            <Button
+                type="Transparent"
+                icon="sap-icon://folder"
+                text="{i18n>project.repository}"
+                press="onRepoPress"
+                visible="{= !!${repo}}"/>
+            <Button
+                type="Transparent"
+                icon="sap-icon://world"
+                text="{i18n>project.website}"
+                press="onUrlPress"
+                visible="{= !!${url}}"/>
+        </HBox>
+    </VBox>
+</core:FragmentDefinition>

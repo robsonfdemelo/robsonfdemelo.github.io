@@ -1,0 +1,212 @@
+[
+  {
+    "id": "btp",
+    "name": "SAP BTP",
+    "category": "SAP",
+    "icon": "cloud",
+    "level": 4,
+    "description": {
+      "pt": "Desenvolvimento e evolução de soluções no SAP BTP, integrando aplicações Fiori/UI5 e serviços de backend.",
+      "en": "Building and evolving SAP BTP solutions integrating Fiori/UI5 applications and backend services."
+    },
+    "tags": [
+      "SAP",
+      "BTP",
+      "Cloud"
+    ],
+    "featured": true
+  },
+  {
+    "id": "ui5",
+    "name": "SAP Fiori / SAPUI5",
+    "category": "SAP",
+    "icon": "grid",
+    "level": 4,
+    "description": {
+      "pt": "Desenvolvimento e melhorias de interfaces SAP Fiori/UI5 para aplicações e portais corporativos.",
+      "en": "Development and enhancement of SAP Fiori/UI5 interfaces for enterprise applications and portals."
+    },
+    "tags": [
+      "SAP",
+      "Fiori",
+      "UI5"
+    ],
+    "featured": true
+  },
+  {
+    "id": "cap",
+    "name": "SAP CAP",
+    "category": "SAP",
+    "icon": "cloud",
+    "level": 4,
+    "description": {
+      "pt": "Desenvolvimento de backend com SAP Cloud Application Programming Model em soluções BTP.",
+      "en": "Backend development with SAP Cloud Application Programming Model for BTP solutions."
+    },
+    "tags": [
+      "SAP",
+      "CAP",
+      "BTP"
+    ],
+    "featured": true
+  },
+  {
+    "id": "mdk",
+    "name": "SAP MDK",
+    "category": "SAP",
+    "icon": "iphone",
+    "level": 4,
+    "description": {
+      "pt": "Aplicações móveis integradas ao SAP para operação em coletores de armazém e processos logísticos.",
+      "en": "SAP-integrated mobile applications for warehouse handhelds and logistics processes."
+    },
+    "tags": [
+      "SAP",
+      "MDK",
+      "Mobile"
+    ],
+    "featured": true
+  },
+  {
+    "id": "abap",
+    "name": "SAP ABAP",
+    "category": "SAP",
+    "icon": "source-code",
+    "level": 4,
+    "description": {
+      "pt": "Module Pool, objetos Z, ALV, RFC, BAPIs, Search Helps, domínios, elementos de dados e manutenção de soluções SAP.",
+      "en": "Module Pool, Z objects, ALV, RFC, BAPIs, Search Helps, domains, data elements and SAP solution maintenance."
+    },
+    "tags": [
+      "SAP",
+      "ABAP"
+    ],
+    "featured": true
+  },
+  {
+    "id": "odata",
+    "name": "OData / SAP Gateway",
+    "category": "SAP",
+    "icon": "connected",
+    "level": 3,
+    "description": {
+      "pt": "Conhecimento de SAP Gateway e integração de aplicações SAP por serviços OData.",
+      "en": "Knowledge of SAP Gateway and SAP application integration through OData services."
+    },
+    "tags": [
+      "SAP",
+      "OData",
+      "Gateway"
+    ],
+    "featured": true
+  },
+  {
+    "id": "java",
+    "name": "Java / Spring Boot",
+    "category": {
+      "pt": "Backend",
+      "en": "Back end"
+    },
+    "icon": "source-code",
+    "level": 4,
+    "description": {
+      "pt": "Desenvolvimento de aplicações corporativas e APIs REST com Java e Spring Boot.",
+      "en": "Enterprise application and REST API development with Java and Spring Boot."
+    },
+    "tags": [
+      "Java",
+      "Spring Boot",
+      "REST"
+    ]
+  },
+  {
+    "id": "javascript",
+    "name": "JavaScript",
+    "category": {
+      "pt": "Front-end",
+      "en": "Front end"
+    },
+    "icon": "syntax",
+    "level": 4,
+    "description": {
+      "pt": "Experiência em aplicações web corporativas e integração com front-ends SAP e não SAP.",
+      "en": "Experience with enterprise web applications and SAP/non-SAP front-end integration."
+    },
+    "tags": [
+      "JavaScript",
+      "Web"
+    ]
+  },
+  {
+    "id": "angularjs",
+    "name": "AngularJS",
+    "category": {
+      "pt": "Front-end",
+      "en": "Front end"
+    },
+    "icon": "grid",
+    "level": 4,
+    "description": {
+      "pt": "Desenvolvimento de funcionalidades no Tasy HTML5 durante atuação na Philips.",
+      "en": "Feature development for Tasy HTML5 during my time at Philips."
+    },
+    "tags": [
+      "AngularJS",
+      "JavaScript"
+    ]
+  },
+  {
+    "id": "plsql",
+    "name": "Oracle PL/SQL",
+    "category": {
+      "pt": "Banco de dados",
+      "en": "Database"
+    },
+    "icon": "database",
+    "level": 4,
+    "description": {
+      "pt": "Consultas, rotinas e integração com banco Oracle em aplicações corporativas.",
+      "en": "Queries, routines and Oracle database integration for enterprise applications."
+    },
+    "tags": [
+      "Oracle",
+      "PL/SQL",
+      "SQL"
+    ]
+  },
+  {
+    "id": "react-native",
+    "name": "React Native",
+    "category": {
+      "pt": "Mobile",
+      "en": "Mobile"
+    },
+    "icon": "iphone",
+    "level": 2,
+    "description": {
+      "pt": "Formação complementar em desenvolvimento mobile com React Native.",
+      "en": "Additional training in mobile development with React Native."
+    },
+    "tags": [
+      "React Native",
+      "Mobile"
+    ]
+  },
+  {
+    "id": "delphi",
+    "name": "Delphi",
+    "category": {
+      "pt": "Outras tecnologias",
+      "en": "Other technologies"
+    },
+    "icon": "source-code",
+    "level": 2,
+    "description": {
+      "pt": "Experiência inicial de carreira em suporte e manutenção de sistema desenvolvido em Delphi.",
+      "en": "Early-career experience supporting and maintaining a system built with Delphi."
+    },
+    "tags": [
+      "Delphi"
+    ]
+  }
+]

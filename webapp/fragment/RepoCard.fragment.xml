@@ -1,0 +1,55 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+    <!--
+        Card de repositorio do GitHub.
+
+        O card inteiro e clicavel (ClickableCards via .pf-repo) e abre o
+        repositorio ("url"). O unico botao interno e "Ver projeto", que leva ao
+        site publicado (GitHub Pages ou homepage, campo "siteUrl") - clique em
+        botao nao dispara o clique do card.
+    -->
+    <VBox class="pf-repo">
+        <HBox alignItems="Center" class="pf-repo__head">
+            <HBox class="pf-repo__icon" alignItems="Center">
+                <core:Icon src="sap-icon://folder" class="pf-text-lg"/>
+            </HBox>
+            <VBox class="pf-gap-0">
+                <Text class="pf-repo__name" text="{name}"/>
+                <HBox alignItems="Center" class="pf-gap-1 pf-muted pf-small" visible="{= !!${pushedAt}}">
+                    <core:Icon src="sap-icon://history" class="pf-text-xs"/>
+                    <Text text="{path: 'pushedAt', formatter: '.formatter.monthYear'}"/>
+                </HBox>
+            </VBox>
+        </HBox>
+
+        <Text class="pf-repo__desc" text="{description}" visible="{= !!${description}}"/>
+
+        <HBox class="pf-chips" items="{path: 'topicItems', templateShareable: true}">
+            <core:Fragment fragmentName="robson.portfolio.fragment.Chip" type="XML"/>
+        </HBox>
+
+        <HBox class="pf-project__foot">
+            <HBox alignItems="Center" class="pf-gap-1 pf-muted pf-small" visible="{= !!${language}}">
+                <core:Icon src="sap-icon://source-code" class="pf-text-xs"/>
+                <Text text="{language}"/>
+            </HBox>
+            <HBox alignItems="Center" class="pf-project__stat" visible="{= !!${stars}}">
+                <core:Icon src="sap-icon://favorite" class="pf-text-xs"/>
+                <Text text="{stars}"/>
+            </HBox>
+            <HBox alignItems="Center" class="pf-project__stat" visible="{= !!${forks}}">
+                <core:Icon src="sap-icon://share" class="pf-text-xs"/>
+                <Text text="{forks}"/>
+            </HBox>
+        </HBox>
+
+        <HBox visible="{= !!${siteUrl} }">
+            <Button
+                class="pf-repo__live"
+                type="Emphasized"
+                icon="sap-icon://world"
+                text="{i18n>project.viewLive}"
+                tooltip="{siteUrl}"
+                press="onSitePress"/>
+        </HBox>
+    </VBox>
+</core:FragmentDefinition>

@@ -1,0 +1,197 @@
+<mvc:View
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    controllerName="robson.portfolio.controller.Home"
+    class="pf-view">
+    <Page id="page" class="pf-page-scroll" enableScrolling="true" showHeader="false">
+        <content>
+            <VBox class="pf-container pf-page">
+
+                <!-- Hero com identidade propria do portfolio do Robson. -->
+                <HBox alignItems="Center" class="pf-hero pf-hero--robson">
+                    <VBox class="pf-hero__content pf-gap-3">
+                        <HBox alignItems="Center" class="pf-hero__badge">
+                            <core:Icon src="sap-icon://accept" class="pf-text-xs"/>
+                            <Text text="{content>/profile/availability}"/>
+                        </HBox>
+
+                        <Text class="pf-hero__name" text="{content>/profile/name}"/>
+                        <Title level="H1" class="pf-hero__title" text="{content>/profile/headline}"/>
+                        <Text class="pf-hero__role" text="{content>/profile/role}"/>
+                        <Text class="pf-hero__summary" text="{content>/profile/summary}"/>
+
+                        <HBox
+                            class="pf-chips pf-hero__stack"
+                            items="{path: '/heroStack', templateShareable: true}"
+                            visible="{= !!${/heroStack} &amp;&amp; ${/heroStack}.length > 0}">
+                            <core:Fragment fragmentName="robson.portfolio.fragment.Chip" type="XML"/>
+                        </HBox>
+
+                        <HBox class="pf-hero__actions">
+                            <Button
+                                type="Emphasized"
+                                icon="sap-icon://source-code"
+                                text="{i18n>action.projects}"
+                                press="onProjectsPress"/>
+                            <Button
+                                type="Ghost"
+                                icon="sap-icon://document-text"
+                                text="{i18n>action.cv}"
+                                press="onCvPress"/>
+                            <Button
+                                type="Ghost"
+                                icon="sap-icon://email"
+                                text="{i18n>action.contact}"
+                                press="onEmailPress"/>
+                        </HBox>
+
+                        <HBox class="pf-hero__meta">
+                            <HBox alignItems="Center" class="pf-hero__meta-item">
+                                <core:Icon src="sap-icon://map" class="pf-text-xs"/>
+                                <Text text="{content>/profile/location}"/>
+                            </HBox>
+                            <HBox alignItems="Center" class="pf-hero__meta-item">
+                                <core:Icon src="sap-icon://email" class="pf-text-xs"/>
+                                <Text text="{content>/profile/email}"/>
+                            </HBox>
+                        </HBox>
+                    </VBox>
+
+                    <VBox class="pf-hero__media" alignItems="Center">
+                        <VBox class="pf-hero__photo-frame">
+                            <Image
+                                class="pf-hero__portrait"
+                                src="{content>/profile/avatar}"
+                                densityAware="false"
+                                alt="{content>/profile/name}"/>
+                        </VBox>
+                        <VBox class="pf-hero__quick pf-gap-1">
+                            <Text class="pf-hero__quick-kicker" text="{i18n>hero.kicker}"/>
+                            <Text class="pf-hero__quick-text" text="{content>/profile/role}"/>
+                        </VBox>
+                    </VBox>
+                </HBox>
+
+                <!-- Indicadores -->
+                <HBox class="pf-grid pf-grid--metrics">
+                    <VBox class="pf-metric">
+                        <Text class="pf-metric__value" text="{content>/metrics/yearsOfExperience}"/>
+                        <Text class="pf-metric__label" text="{i18n>metric.years}"/>
+                    </VBox>
+                    <VBox class="pf-metric">
+                        <Text class="pf-metric__value" text="{content>/metrics/companies}"/>
+                        <Text class="pf-metric__label" text="{i18n>metric.companies}"/>
+                    </VBox>
+                    <VBox class="pf-metric">
+                        <Text class="pf-metric__value" text="{content>/metrics/projectCount}"/>
+                        <Text class="pf-metric__label" text="{i18n>metric.projects}"/>
+                    </VBox>
+                    <VBox class="pf-metric">
+                        <Text class="pf-metric__value" text="{content>/metrics/skillCount}"/>
+                        <Text class="pf-metric__label" text="{i18n>metric.skills}"/>
+                    </VBox>
+                </HBox>
+
+                <!-- Expertise em destaque -->
+                <VBox class="pf-stack pf-gap-4">
+                    <HBox alignItems="Center" class="pf-row--between pf-row--wrap pf-gap-3">
+                        <VBox>
+                            <Text class="pf-eyebrow" text="{i18n>home.focusEyebrow}"/>
+                            <Title level="H2" class="pf-h2" text="{i18n>home.focusTitle}"/>
+                        </VBox>
+                        <Button
+                            type="Transparent"
+                            icon="sap-icon://arrow-right"
+                            text="{i18n>action.viewAll}"
+                            press="onSkillsPress"/>
+                    </HBox>
+
+                    <HBox class="pf-grid pf-grid--skills" items="{path: '/focusSkills', length: 6, templateShareable: true}">
+                        <core:Fragment fragmentName="robson.portfolio.fragment.SkillCard" type="XML"/>
+                    </HBox>
+                </VBox>
+
+                <!-- Experiencia recente -->
+                <VBox class="pf-stack pf-gap-4">
+                    <HBox alignItems="Center" class="pf-row--between pf-row--wrap pf-gap-3">
+                        <VBox>
+                            <Text class="pf-eyebrow" text="{i18n>home.experienceEyebrow}"/>
+                            <Title level="H2" class="pf-h2" text="{i18n>home.experienceTitle}"/>
+                        </VBox>
+                        <Button
+                            type="Transparent"
+                            icon="sap-icon://arrow-right"
+                            text="{i18n>action.viewAll}"
+                            press="onExperiencePress"/>
+                    </HBox>
+
+                    <VBox class="pf-stack pf-gap-3" items="{path: '/recentExperiences', length: 2, templateShareable: true}">
+                        <core:Fragment fragmentName="robson.portfolio.fragment.ExperienceItem" type="XML"/>
+                    </VBox>
+                </VBox>
+
+                <!-- Projetos recentes -->
+                <VBox class="pf-stack pf-gap-4">
+                    <HBox alignItems="Center" class="pf-row--between pf-row--wrap pf-gap-3">
+                        <VBox>
+                            <Text class="pf-eyebrow" text="{i18n>home.projectsRecentEyebrow}"/>
+                            <Title level="H2" class="pf-h2" text="{i18n>home.projectsRecentTitle}"/>
+                        </VBox>
+                        <Button
+                            type="Transparent"
+                            icon="sap-icon://arrow-right"
+                            text="{i18n>action.viewAll}"
+                            press="onProjectsPress"/>
+                    </HBox>
+
+                    <HBox
+                        class="pf-grid pf-grid--projects"
+                        items="{path: '/recentProjects', length: 3, templateShareable: true}">
+                        <core:Fragment fragmentName="robson.portfolio.fragment.ProjectCard" type="XML"/>
+                    </HBox>
+                </VBox>
+
+                <!-- GitHub aparece automaticamente quando a conta do Robson for configurada. -->
+                <VBox class="pf-stack pf-gap-4" visible="{= !!${content>/recentRepos} &amp;&amp; ${content>/recentRepos}.length > 0 }">
+                    <HBox alignItems="Center" class="pf-row--between pf-row--wrap pf-gap-3">
+                        <VBox>
+                            <Text class="pf-eyebrow" text="{i18n>home.reposEyebrow}"/>
+                            <Title level="H2" class="pf-h2" text="{i18n>home.reposTitle}"/>
+                        </VBox>
+                        <Button
+                            type="Transparent"
+                            icon="sap-icon://arrow-right"
+                            text="{i18n>action.viewAll}"
+                            press="onProjectsPress"/>
+                    </HBox>
+
+                    <HBox class="pf-grid pf-grid--repos" items="{path: '/recentRepos', length: 3, templateShareable: true}">
+                        <core:Fragment fragmentName="robson.portfolio.fragment.RepoCard" type="XML"/>
+                    </HBox>
+                </VBox>
+
+                <!-- Chamada final -->
+                <VBox class="pf-cta">
+                    <VBox class="pf-cta__content pf-gap-3">
+                        <Title level="H2" class="pf-cta__title" text="{i18n>cta.title}"/>
+                        <Text class="pf-cta__text" text="{i18n>cta.text}"/>
+                    </VBox>
+                    <HBox class="pf-cta__actions">
+                        <Button
+                            type="Emphasized"
+                            icon="sap-icon://email"
+                            text="{i18n>action.contact}"
+                            press="onEmailPress"/>
+                        <Button
+                            type="Ghost"
+                            icon="sap-icon://pdf-attachment"
+                            text="{i18n>action.downloadCv}"
+                            press="onDownloadCvPress"/>
+                    </HBox>
+                </VBox>
+
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>
