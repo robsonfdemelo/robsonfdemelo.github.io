@@ -2185,23 +2185,43 @@ html .pf-app .pf-topbar .sapMBtn:focus-visible > .sapMBtnInner::before {
 }
 
 .pf-footer__toggle {
-    flex: 0 0 auto;
-    min-width: 10rem;
+    /*
+     * O SegmentedButton do Horizon calcula larguras internas e pode manter um
+     * max-width menor mesmo quando o controle recebe `width` no XML. Forcamos
+     * a largura real do controle para o flex do rodape nao comprimir a opcao
+     * "Escuro" em "Esc...".
+     */
+    flex: 0 0 11rem !important;
+    width: 11rem !important;
+    min-width: 11rem !important;
+    max-width: 11rem !important;
     border-radius: var(--pf-radius-pill);
+    overflow: visible;
 }
 
-/*
- * O SegmentedButton distribui a largura entre Claro/Escuro. Sem uma largura
- * minima o flex do rodape pode comprimir o controle e o UI5 troca o texto por
- * reticencias ("Esc..."). Mantemos os dois labels sempre legiveis.
- */
-.pf-footer__toggle .sapMSegBBtn,
+/* Cada opcao recebe metade da largura, sem o limite interno do tema UI5. */
+.pf-footer__toggle > .sapMSegBBtn,
+.pf-footer__toggle .sapMSegBBtn {
+    box-sizing: border-box;
+    flex: 0 0 50% !important;
+    width: 50% !important;
+    min-width: 5.5rem !important;
+    max-width: none !important;
+}
+
+.pf-footer__toggle .sapMSegBBtnInnerWrapper,
 .pf-footer__toggle .sapMSegBBtnInner {
-    min-width: 0;
+    box-sizing: border-box;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
 }
 
 .pf-footer__toggle .sapMSegBBtnInner {
+    padding-inline: 0.65rem !important;
     white-space: nowrap;
+    overflow: visible !important;
+    text-overflow: clip !important;
 }
 
 /*

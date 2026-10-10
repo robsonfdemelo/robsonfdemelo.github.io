@@ -49,7 +49,8 @@
                 -->
                 <SegmentedButton
                     id="themeToggle"
-                    width="10rem"
+                    width="11rem"
+                    contentMode="EqualSized"
                     selectionChange="onThemeChange"
                     class="pf-footer__toggle"/>
             </HBox>
