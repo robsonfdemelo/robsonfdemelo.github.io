@@ -143,6 +143,16 @@ function shortUrl(url: string): string {
         .replace(/\/$/, "");
 }
 
+/**
+ * No curriculo, o link completo do WhatsApp (com `?text=...`) fica ilegivel e
+ * ocupa varias linhas. Exibimos apenas o telefone formatado e mantemos a URL
+ * completa como hyperlink clicavel.
+ */
+function whatsappDisplayValue(url: string): string | undefined {
+    const match = url.match(/(?:wa\.me\/|api\.whatsapp\.com\/send\?phone=)(\d{10,15})/i);
+    return match?.[1] ? formatPhone(match[1]) : undefined;
+}
+
 /** Nome do arquivo baixado: robson-ferreira-cv-pt.pdf. */
 export function cvPdfFileName(content: PortfolioContent, locale: ContentLocale): string {
     const slug = content.profile.name
@@ -373,40 +383,86 @@ function renderCvPdf(
     };
 
     // Contato: rotulo pequeno + valor, para nao depender de icones.
+    // Links longos (principalmente WhatsApp com mensagem pre-preenchida) usam
+    // um texto curto no PDF, mas continuam clicaveis.
     sideHeading(labels.contact);
-    const contactRows: [string, string][] = [];
+    const contactRows: { label: string; value: string; url?: string }[] = [];
     if (profile.email) {
-        contactRows.push(["E-mail", profile.email]);
+        contactRows.push({ label: "E-mail", value: profile.email, url: `mailto:${profile.email}` });
     }
     if (profile.phone) {
-        contactRows.push([locale === "pt" ? "Telefone" : "Phone", formatPhone(profile.phone)]);
+        contactRows.push({
+            label: locale === "pt" ? "Telefone" : "Phone",
+            value: formatPhone(profile.phone)
+        });
     }
     if (profile.location) {
-        contactRows.push([locale === "pt" ? "Local" : "Location", t(profile.location)]);
+        contactRows.push({ label: locale === "pt" ? "Local" : "Location", value: t(profile.location) });
     }
     profile.links
         .filter((link) => !link.url.startsWith("mailto:"))
-        .forEach((link) => contactRows.push([t(link.label), shortUrl(link.url)]));
+        .forEach((link) =>
+            contactRows.push({
+                label: t(link.label),
+                value: whatsappDisplayValue(link.url) ?? shortUrl(link.url),
+                url: link.url
+            })
+        );
 
-    contactRows.forEach(([label, value]) => {
-        ensureSide(24);
+    contactRows.forEach(({ label, value, url }) => {
+        font("normal", 8, TEXT);
+        const valueLines = doc.splitTextToSize(value, SIDE_W) as string[];
+        ensureSide(13 + valueLines.length * lineHeight(8));
         font("bold", 6.8, MUTED);
         doc.text(label.toUpperCase(), SIDE_X, sideY, { charSpace: 0.3 });
         font("normal", 8, TEXT);
-        sideY = wrapped(value, SIDE_X, sideY + 9.5, SIDE_W, 8) + 4;
+        const valueY = sideY + 9.5;
+        valueLines.forEach((line, index) => {
+            const y = valueY + index * lineHeight(8);
+            if (url) {
+                doc.textWithLink(line, SIDE_X, y, { url });
+            } else {
+                doc.text(line, SIDE_X, y);
+            }
+        });
+        sideY = valueY + valueLines.length * lineHeight(8) + 4;
     });
     sideY += 8;
 
-    // Idiomas
+    // Idiomas. Niveis curtos ficam na mesma linha; descricoes longas quebram
+    // abaixo do idioma, evitando sobreposicao (ex.: ingles + intercambio).
     if (profile.languages?.length) {
         sideHeading(labels.languages);
         profile.languages.forEach((language) => {
-            ensureSide(14);
+            const name = t(language.name);
+            const level = t(language.level);
+
             font("bold", 8.2, TEXT);
-            doc.text(t(language.name), SIDE_X, sideY);
+            const nameW = doc.getTextWidth(name);
             font("normal", 7.6, MUTED);
-            doc.text(t(language.level), SIDE_X + SIDE_W, sideY, { align: "right" });
-            sideY += 13;
+            const levelW = doc.getTextWidth(level);
+
+            if (nameW + levelW + 10 <= SIDE_W) {
+                ensureSide(14);
+                font("bold", 8.2, TEXT);
+                doc.text(name, SIDE_X, sideY);
+                font("normal", 7.6, MUTED);
+                doc.text(level, SIDE_X + SIDE_W, sideY, { align: "right" });
+                sideY += 13;
+                return;
+            }
+
+            font("normal", 7.2, MUTED);
+            const levelLines = doc.splitTextToSize(level, SIDE_W) as string[];
+            const blockHeight = 12 + levelLines.length * lineHeight(7.2) + 3;
+            ensureSide(blockHeight);
+            font("bold", 8.2, TEXT);
+            doc.text(name, SIDE_X, sideY);
+            font("normal", 7.2, MUTED);
+            levelLines.forEach((line, index) =>
+                doc.text(line, SIDE_X, sideY + 10 + index * lineHeight(7.2))
+            );
+            sideY += blockHeight;
         });
         sideY += 8;
     }

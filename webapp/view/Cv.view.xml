@@ -82,9 +82,9 @@
                                 visible="{= !!${content>/profile/languages} &amp;&amp; ${content>/profile/languages}.length > 0}">
                                 <Text class="pf-cv__side-title" text="{i18n>cv.languages}"/>
                                 <VBox items="{path: 'content>/profile/languages', templateShareable: true}">
-                                    <HBox class="pf-cv__lang" justifyContent="SpaceBetween" alignItems="Center">
-                                        <Text class="pf-cv__lang-name" text="{content>name}"/>
-                                        <Text class="pf-cv__lang-level" text="{content>level}"/>
+                                    <HBox class="pf-cv__lang" justifyContent="SpaceBetween" alignItems="Start">
+                                        <Text class="pf-cv__lang-name" text="{content>name}" wrapping="false"/>
+                                        <Text class="pf-cv__lang-level" text="{content>level}" wrapping="true"/>
                                     </HBox>
                                 </VBox>
                             </VBox>

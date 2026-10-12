@@ -1686,14 +1686,21 @@
 }
 
 .pf-cv .pf-cv__lang-name {
+    flex: 0 0 auto;
+    min-width: 5.25rem;
+    margin-right: var(--pf-space-2);
     color: var(--pf-text);
     font-size: var(--pf-font-sm);
     font-weight: 700;
+    white-space: nowrap;
 }
 
 .pf-cv .pf-cv__lang-level {
+    flex: 1 1 auto;
+    min-width: 0;
     color: var(--pf-text-muted);
     font-size: var(--pf-font-xs);
+    text-align: right;
 }
 
 .pf-cv .pf-cv__groups {
